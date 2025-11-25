@@ -1073,76 +1073,6 @@
         }
       }
 
-      /* Promo Banner */
-      .promo-banner {
-        position: fixed;
-        top: 80px;
-        right: 2rem;
-        z-index: 98;
-        background: linear-gradient(135deg, var(--sage), var(--sage-light));
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(91, 126, 255, 0.3);
-        max-width: 280px;
-        animation: slideInRight 0.5s ease-out;
-      }
-
-      .promo-banner-close {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 1.2rem;
-        opacity: 0.7;
-        transition: opacity 0.2s;
-      }
-
-      .promo-banner-close:hover {
-        opacity: 1;
-      }
-
-      .promo-banner-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .promo-banner h4 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-      }
-
-      .promo-banner p {
-        font-size: 0.8rem;
-        opacity: 0.9;
-        margin: 0;
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(100px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .promo-banner {
-          top: auto;
-          bottom: 90px;
-          right: 1rem;
-          left: 1rem;
-          max-width: none;
-        }
-      }
-
       /* Floating WhatsApp */
       .floating-cta {
         position: fixed;
@@ -1917,14 +1847,6 @@
         © 2024 NUVO. Tous droits réservés.
       </p>
     </footer>
-
-    <!-- Promo Banner -->
-    <div class="promo-banner" id="promoBanner">
-      <button class="promo-banner-close" onclick="document.getElementById('promoBanner').style.display='none'">&times;</button>
-      <div class="promo-banner-icon">⚡</div>
-      <h4>Disponibilité cette semaine !</h4>
-      <p>Profitez d'un créneau d'intervention rapide</p>
-    </div>
 
     <!-- Floating WhatsApp Button -->
     <div class="floating-cta">
