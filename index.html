@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUVO | Nettoyage Textile Premium à Versailles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --charcoal: #1A1A1A;
+            --sage: #7C8B6F;
+            --sage-light: #9DAB8F;
+            --gold: #C9A962;
+            --white: #FFFFFF;
+            --gray-soft: #F5F3F0;
+            --text-muted: #6B6B6B;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--charcoal);
+        }
+
+        .logo span {
+            color: var(--sage);
+        }
+
+        .header-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            border-radius: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(124, 139, 111, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--sage);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 2rem;
+            height: 1px;
+            background: var(--sage);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
+
+        h1 .highlight {
+            color: var(--sage);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* Price anchor */
+        .price-anchor {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .price-from {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .price-value sup {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        /* CTA Button */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            animation: fadeUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: var(--sage);
+            color: var(--white);
+            padding: 1.25rem 2.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            max-width: 320px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--sage-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 139, 111, 0.3);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .cta-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-sub svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--sage);
+        }
+
+        /* Social proof */
+        .social-proof {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(26, 26, 26, 0.08);
+            animation: fadeUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .proof-grid {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .proof-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .proof-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--sage);
+        }
+
+        .proof-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .proof-text strong {
+            display: block;
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .services-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--sage);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .service-price .from {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .service-price .amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Before/After */
+        .results {
+            padding: 6rem 2rem;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .results-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .results .section-tag {
+            color: var(--gold);
+        }
+
+        .results h2 {
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .result-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, rgba(124, 139, 111, 0.3), rgba(201, 169, 98, 0.2));
+        }
+
+        .result-card::before {
+            content: 'AVANT';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.8rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 2rem;
+        }
+
+        .result-card::after {
+            content: 'APRÈS';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.8rem;
+            background: var(--sage);
+            border-radius: 2rem;
+        }
+
+        .result-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Process */
+        .process {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .process-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .process-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--sage);
+            opacity: 0.5;
+        }
+
+        .step-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 6rem 2rem;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .final-cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta .cta-button {
+            margin: 0 auto;
+        }
+
+        .guarantee {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--gray-soft);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .guarantee strong {
+            color: var(--charcoal);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer .logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .proof-grid {
+                gap: 1.5rem;
+            }
+
+            .services, .results, .process, .final-cta {
+                padding: 4rem 1.5rem;
+            }
+
+            .process-step {
+                grid-template-columns: 40px 1fr;
+                gap: 1rem;
+            }
+
+            .step-number {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        /* Floating WhatsApp */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .floating-cta svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .floating-cta a {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">NUV<span>O</span></div>
+            <div class="header-badge">Versailles & environs</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Nettoyage textile professionnel</div>
+            <h1>Votre canapé mérite une <span class="highlight">seconde jeunesse</span></h1>
+            <p class="hero-subtitle">Nettoyage professionnel de canapés, tapis et matelas à domicile. Intervention rapide à Versailles et communes environnantes.</p>
+            
+            <div class="price-anchor">
+                <span class="price-from">À partir de</span>
+                <span class="price-value">79<sup>€</sup></span>
+            </div>
+
+            <div class="cta-group">
+                <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20le%20nettoyage%20de%20mon%20textile.%20Merci%20!" class="cta-button">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Demander mon devis gratuit
+                </a>
+                <span class="cta-sub">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Réponse en moins de 2h
+                </span>
+            </div>
+
+            <div class="social-proof">
+                <div class="proof-grid">
+                    <div class="proof-item">
+                        <div class="proof-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="proof-text">
+                            <strong>5 étoiles</strong>
+                            Satisfaction clients
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        </div>
+                        <div class="proof-text">
+                            <strong>Devis transparent</strong>
+                            Prix fixe, pas de surprise
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        </div>
+                        <div class="proof-text">
+                            <strong>Intervention rapide</strong>
+                            Sous 48-72h
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="services-inner">
+            <div class="section-header">
+                <div class="section-tag">Nos prestations</div>
+                <h2>Un service adapté à chaque textile</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 60 60" fill="none">
+                        <rect x="5" y="20" width="50" height="30" rx="4" fill="#7C8B6F" opacity="0.2"/>
+                        <rect x="8" y="23" width="20" height="24" rx="2" fill="#7C8B6F" opacity="0.4"/>
+                        <rect x="32" y="23" width="20" height="24" rx="2" fill="#7C8B6F" opacity="0.4"/>
+                        <rect x="5" y="15" width="50" height="8" rx="2" fill="#7C8B6F"/>
+                    </svg>
+                    <h3>Canapés</h3>
+                    <p>Nettoyage en profondeur de tous types de canapés : tissu, microfibre, velours. Élimination des taches et odeurs.</p>
+                    <div class="service-price">
+                        <span class="from">dès</span>
+                        <span class="amount">79€</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 60 60" fill="none">
+                        <rect x="5" y="25" width="50" height="30" rx="2" fill="#7C8B6F" opacity="0.3"/>
+                        <path d="M5 27C5 25.8954 5.89543 25 7 25H53C54.1046 25 55 25.8954 55 27V30H5V27Z" fill="#7C8B6F"/>
+                        <line x1="15" y1="35" x2="15" y2="50" stroke="#7C8B6F" stroke-width="2" opacity="0.5"/>
+                        <line x1="30" y1="35" x2="30" y2="50" stroke="#7C8B6F" stroke-width="2" opacity="0.5"/>
+                        <line x1="45" y1="35" x2="45" y2="50" stroke="#7C8B6F" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                    <h3>Tapis & Moquettes</h3>
+                    <p>Ravivez les couleurs et éliminez les acariens. Traitement adapté aux fibres naturelles et synthétiques.</p>
+                    <div class="service-price">
+                        <span class="from">dès</span>
+                        <span class="amount">49€</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 60 60" fill="none">
+                        <rect x="8" y="20" width="44" height="25" rx="3" fill="#7C8B6F" opacity="0.3"/>
+                        <rect x="8" y="15" width="44" height="8" rx="2" fill="#7C8B6F" opacity="0.5"/>
+                        <rect x="12" y="45" width="36" height="5" rx="1" fill="#7C8B6F"/>
+                    </svg>
+                    <h3>Matelas</h3>
+                    <p>Désinfection et nettoyage en profondeur. Éliminez acariens, taches et mauvaises odeurs pour un sommeil sain.</p>
+                    <div class="service-price">
+                        <span class="from">dès</span>
+                        <span class="amount">69€</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results">
+        <div class="results-inner">
+            <div class="section-header">
+                <div class="section-tag">Résultats garantis</div>
+                <h2>La différence parle d'elle-même</h2>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-placeholder">Photo avant/après #1</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-placeholder">Photo avant/après #2</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-placeholder">Photo avant/après #3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="process-inner">
+            <div class="section-header">
+                <div class="section-tag">Comment ça marche</div>
+                <h2>Simple, rapide, efficace</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Vous nous contactez</h3>
+                        <p>Envoyez-nous une photo de votre textile via WhatsApp. Vous recevez un devis précis en moins de 2 heures.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>On planifie ensemble</h3>
+                        <p>Choisissez le créneau qui vous convient. Nos techniciens interviennent du lundi au samedi.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Intervention à domicile</h3>
+                        <p>Notre technicien arrive équipé. Le nettoyage dure 1 à 2 heures selon la prestation. Séchage complet sous 4h.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-inner">
+            <div class="section-tag">Prêt à retrouver un intérieur impeccable ?</div>
+            <h2>Obtenez votre devis en 2 minutes</h2>
+            <p>Envoyez-nous simplement une photo de votre textile. Devis gratuit et sans engagement.</p>
+            <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20le%20nettoyage%20de%20mon%20textile.%20Merci%20!" class="cta-button">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Demander mon devis gratuit
+            </a>
+            <div class="guarantee">
+                <strong>🛡️ Garantie satisfaction</strong><br>
+                Si le résultat ne vous convient pas, nous repassons gratuitement.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">NUV<span>O</span></div>
+        <p>Nettoyage textile professionnel à domicile</p>
+        <p>Versailles • Le Chesnay • Viroflay • Meudon • Saint-Cloud</p>
+        <p style="margin-top: 1rem; opacity: 0.6;">© 2024 NUVO. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-cta">
+        <a href="https://wa.me/33XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20le%20nettoyage%20de%20mon%20textile.%20Merci%20!" aria-label="Nous contacter sur WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+    </div>
+</body>
+</html>
