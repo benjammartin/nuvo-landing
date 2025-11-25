@@ -17,8 +17,8 @@
         :root {
             --cream: #FAF8F5;
             --charcoal: #1A1A1A;
-            --sage: #7C8B6F;
-            --sage-light: #9DAB8F;
+            --sage: #5B7EFF;
+            --sage-light: #7B9AFF;
             --gold: #C9A962;
             --white: #FFFFFF;
             --gray-soft: #F5F3F0;
@@ -59,15 +59,13 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--charcoal);
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--sage);
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .header-badge {
@@ -538,15 +536,19 @@
         /* Footer */
         footer {
             padding: 3rem 2rem;
-            background: var(--charcoal);
+            background: #5B7EFF;
             color: rgba(255,255,255,0.6);
             text-align: center;
             font-size: 0.85rem;
         }
 
         footer .logo {
-            color: var(--white);
             margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        footer .logo img {
+            height: 50px;
         }
 
         footer p {
@@ -656,7 +658,9 @@
     <!-- Header -->
     <header>
         <div class="header-inner">
-            <div class="logo">NUV<span>O</span></div>
+            <div class="logo">
+                <img src="assets/logo.png" alt="NUVO">
+            </div>
             <div class="header-badge">Versailles & environs</div>
         </div>
     </header>
@@ -845,7 +849,9 @@
 
     <!-- Footer -->
     <footer>
-        <div class="logo">NUV<span>O</span></div>
+        <div class="logo">
+            <img src="assets/logo.png" alt="NUVO">
+        </div>
         <p>Nettoyage textile professionnel à domicile</p>
         <p>Versailles • Le Chesnay • Viroflay • Meudon • Saint-Cloud</p>
         <p style="margin-top: 1rem; opacity: 0.6;">© 2024 NUVO. Tous droits réservés.</p>
